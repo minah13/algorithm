@@ -1,8 +1,8 @@
-// 1065 문제
+// 1065 문제(한수)
 
 import java.io.*;
 
-public class onenum {
+public class exam_1065 {
 	static int n;
 	static int result=0;
 	public static void main(String[] args) throws Exception{
