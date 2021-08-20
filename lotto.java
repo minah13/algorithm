@@ -1,4 +1,7 @@
 // 6603 문제
+// 재귀함수 이용
+// BufferedWriter -> close 필수! (메모리 초과), 매개변수 이용
+// 매개변수 ++ 연산자 사용시, 해당 값 변경됨 주의!
 
 import java.io.*;
 import java.util.*;
