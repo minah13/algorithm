@@ -1,4 +1,5 @@
-// 1065
+// 1065 문제
+
 import java.io.*;
 
 public class onenum {
