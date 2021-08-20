@@ -1,9 +1,9 @@
-// 1182 문제
+// 1182 문제(부분수열의 합)
 
 import java.io.*;
 import java.util.*;
 
-public class sum_subsq {
+public class exam_1182 {
 	static int sum;
 	static int N;
 	static int[] num;
