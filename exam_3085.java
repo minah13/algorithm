@@ -62,18 +62,6 @@ public class exam_3085 {
 				board[i][j] = tmp.charAt(j);
 			}
 		}
-
-		// 아무것도 바꾸지 않았을때 
-		
-		// 열 비교
-		for(int i=0;i<n;i++) {
-			compare_row(i);
-		}
-		
-		// 행 비교
-		for(int i=0;i<n;i++) {
-			compare_col(i);
-		}
 		
 		for(int i =0;i<n;i++) {
 			for(int j=0;j<n;j++) {
