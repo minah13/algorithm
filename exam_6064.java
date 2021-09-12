@@ -3,48 +3,31 @@ import java.io.*;
 import java.util.*;
 
 public class exam_6064 {
-	static int M;
-	static int N;
 	
-	public static int kaing(int x, int y) {
-		boolean[] check = new boolean[40000];
-		int sub;
-		int max_value;
-		int a = x;
-		int b = y;
+	public static int kaing(int x, int y,int M, int N) {	
 		
-		if(x>y) {
-			sub = x-y;
-			max_value = 1;
-		}else {
-			sub = y-x;
-			max_value = 2;
-		}
+		boolean[] check = new boolean[N];
+		int k = x;
+		
 		while(true) {
-			if(a == b)
-				return a;
-			int max;
-			if(a>b) {
-				max = a;
-				b += N;
-				if(max_value==1 && sub == a-b)
-					break;
-			}else{
-				max = b;
-				a += M;
-				if(max_value == 2 && sub == b-a)
-					break;
-			}
-			
+			if(k%N ==y)
+				break;
+			if(check[k%N])
+				return -1;
+			check[k%N] = true;
+			k += M;
 		}
 		
-		return -1;
+		return k;
 	}
 	
 	public static void main(String[] args) throws Exception{
 		int T;
 		int x;
 		int y;
+		int M;
+		int N;
+		int result;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		T = Integer.parseInt(br.readLine());
@@ -56,7 +39,16 @@ public class exam_6064 {
 			x = Integer.parseInt(st.nextToken());
 			y = Integer.parseInt(st.nextToken());
 			
-			int result = kaing(x,y);
+			
+			if(M>N) {
+				if(N == y)
+					y = 0;
+				result = kaing(x,y,M,N);
+			}else {
+				if(M == x)
+					x = 0;
+				result = kaing(y,x,N,M);
+			}
 			bw.write(result + "\n");
 		}
 		
