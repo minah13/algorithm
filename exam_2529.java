@@ -1,28 +1,18 @@
 // 2529번 문제(부등호)
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class exam_2529 {
 	
-	static long max = Long.MIN_VALUE;
-	static long min = Long.MAX_VALUE;
-	static String max_str;
-	static String min_str;
 	static int k;
 	static char[] inequality;
+	static ArrayList<String> ans = new ArrayList<>();
 	
 	public static void numstr(int index, String num_s, boolean[] num) {
 		if(index>k) {
-			long tmp = Long.parseLong(num_s);
-			if(tmp>max)
-			{
-				max = tmp;
-				max_str = num_s;
-			}
-			if(tmp<min) {
-				min = tmp;
-				min_str = num_s;
-			}
+			ans.add(num_s);
 			
 			return ;
 		}
@@ -41,7 +31,7 @@ public class exam_2529 {
 			if(equ=='<') {
 				for(int i=before+1;i<10;i++) {
 					if(num[i]==false) {
-						String j = String.valueOf(i);
+						String j = Integer.toString(i);
 						num[i] = true;
 						numstr(index+1,num_s+j,num);
 						num[i] = false;
@@ -50,7 +40,7 @@ public class exam_2529 {
 			}else {
 				for(int i=0;i<before;i++) {
 					if(num[i] ==false) {
-						String j = String.valueOf(i);
+						String j = Integer.toString(i);
 						num[i] = true;
 						numstr(index+1,num_s+j,num);
 						num[i] = false;
@@ -74,7 +64,12 @@ public class exam_2529 {
 		
 		numstr(0,"",num);
 		
-		System.out.println(max_str);
-		System.out.println(min_str);
+		Collections.sort(ans);
+		String min = ans.get(ans.size()-1);
+		String max = ans.get(0);
+		System.out.println(min);
+		System.out.println(max);
+		
+		
 	}
 }
