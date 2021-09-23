@@ -1,9 +1,9 @@
-//10971번 문제(외판원 순회2)
+//10971번 문제(외판원 순회2) + 시작 위치를 고정!
 
 import java.io.*;
 import java.util.*;
 
-public class exam_10971 {
+public class Main {
 	static long minW = Long.MAX_VALUE;
 	
 	public static void travel(int N, int[][] W, int index,int count,int w, boolean[] check,int start) {
@@ -40,13 +40,13 @@ public class exam_10971 {
 			}
 		}
 		
-		//boolean[] check = new boolean[N];
-		//travel(N,W,0,0,0);
+		boolean[] check = new boolean[N];
+		travel(N,W,0,0,0,check,0);
 		
-		for(int j=0;j<N;j++) {
-			boolean[] check = new boolean[N];
-			travel(N,W,j,0,0,check,j);
-		}
+		//for(int j=0;j<N;j++) {
+		//	boolean[] check = new boolean[N];
+		//	travel(N,W,j,0,0,check,j);
+		//}
 		
 		System.out.println(minW);
 	}
