@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-class DP2 {
+class BruteForce2 {
     public int solution(String numbers) {
         int answer = 0;
         String[] remain = new String[numbers.length()];
